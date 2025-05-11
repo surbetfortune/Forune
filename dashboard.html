@@ -8,40 +8,37 @@
 </head>
 <body>
   <header>
-    <h1>Tableau de bord</h1>
-    <p>Bienvenue sur votre espace personnel FORTUNE PLUS</p>
+    <h1>Bienvenue, {{ user_name }}</h1>
+    <p>Votre tableau de bord FORTUNE PLUS</p>
   </header>
 
+  <nav>
+    <a href="index.html">Accueil</a> |
+    <a href="formation.html">Formation</a> |
+    <a href="objectif.html">Objectif</a> |
+    <a href="annonce.html">Annonces</a> |
+    <a href="surbet.html">Surbet du jour</a>
+  </nav>
+
   <main>
-    <section>
-      <h2>Mes Informations</h2>
-      <p>Nom : Jean Eudes</p>
-      <p>Email : utilisateur@exemple.com</p>
-      <p>Statut de cotisation : À jour</p>
+    <section id="infos">
+      <h2>Mes informations</h2>
+      <p>Nom : {{ user_name }}</p>
+      <p>Email : {{ user_email }}</p>
+      <p>Statut de cotisation : {{ cotisation_status }}</p>
     </section>
 
-    <section>
-      <h2>Mon Réseau (jusqu'à 6 niveaux)</h2>
-      <p><em>Affichage en arborescence dynamique à venir</em></p>
+    <section id="gains">
+      <h2>Mes gains</h2>
+      <p>Gains du mois : {{ monthly_gain }} FCFA</p>
+      <p>Cumul : {{ total_gain }} FCFA</p>
+      <button onclick="window.print()">Exporter en PDF</button>
     </section>
 
-    <section>
-      <h2>Mes Gains</h2>
-      <ul>
-        <li>Gains du mois : 5 000 FCFA</li>
-        <li>Gains cumulés : 25 000 FCFA</li>
-        <li><a href="#">Exporter en PDF</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Annonce du jour</h2>
-      <p><em>Visible uniquement aux membres à jour</em></p>
-    </section>
-
-    <section>
-      <h2>SURBET DU JOUR</h2>
-      <p><em>Contenu sécurisé, accessible uniquement aux membres à jour</em></p>
+    <section id="reseau">
+      <h2>Mon réseau</h2>
+      <p>Filleuls directs : {{ filleuls_directs }}</p>
+      <p>Filleuls totaux (jusqu'au 6e niveau) : {{ filleuls_totaux }}</p>
     </section>
   </main>
 
